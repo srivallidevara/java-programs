@@ -1,0 +1,23 @@
+class Example{
+    int x=5,y=6;
+    void addition(){
+        System.out.println("Addition is:"+(x+y));
+    }
+    void subtraction(){
+        system.out.println("subtraction is:"+(x-y));
+    }
+}
+class Demo{
+    void showData(){
+        system.out.println("This is show data from class Demo");
+    }
+}
+public class sampleprog{
+    public static void main("Results is:"+z);
+    Demo d=new Demo();
+    d.showData();
+    Example e=new Example();
+    e.addition();
+    e.subtraction();
+}
+
