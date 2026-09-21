@@ -1,20 +1,25 @@
-public class conDemo {
-    int rollNo;
+public class ConDemo{
+    int rollno;
     String name;
-    //constructer
-    public conDemo(){
-        this.rollNo=1234;
-        System.out.println("variables are ready");
+    float fee;
+    // constructer
+    public ConDemo(int i,String n, float f){
+        this.rollno=i;
+        this.name=n;
+        this.fee=f;
     }
-    void showDetails(){
-        System.out.println("My roll number is:"+rollNo);
-        System.out.println("My Name is:"+name);
+    // Main method
+    public void sample() {
+        System.out.println("Test method");
+        System.out.println("Roll no is:"+this.rollno);
+        System.out.println("Name is:"+ this.name);
+        System.out.println("Fee is:"+ this.fee);
     }
-    public static void main (String args[]){
-        conDemo cd=new conDemo();//
-        cd.name="g";
-        cd.showDetails();
+    //Main method
+    public static void main (String[]args) {
+        System.out.println("Hello cSM D");
+        ConDemo cd=new ConDemo(1234,"srivalli",234.56f);
+        cd.sample();
     }
     }
     
-
