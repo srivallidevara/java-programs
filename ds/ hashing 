@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+#define SIZE 10
+
+int hashTable[SIZE];
+
+void insert(int key) {
+    int index = key % SIZE;
+    int i = 0;
+    int probes = 0;
+
+    while (i < SIZE) {
+        index = (key % SIZE + i) % SIZE;
+        probes++;
+
+        if (hashTable[index] == -1) {
+            hashTable[index] = key;
+            printf("%d inserted at index %d\n", key, index);
+            printf("Probes: %d\n", probes);
+            return;
+        }
+
+        i++;
+    }
+
+    printf("Hash Table is Full\n");
+}
+
+void search(int key) {
+    int index, i;
+
+    for (i = 0; i < SIZE; i++) {
+        index = (key % SIZE + i) % SIZE;
+
+        if (hashTable[index] == key) {
+            printf("Element found at index %d\n", index);
+            return;
+        }
+
+        if (hashTable[index] == -1)
+            break;
+    }
+
+    printf("Element not found\n");
+}
+
+void display() {
+    int i;
+
+    printf("\nHash Table:\n");
+
+    for (i = 0; i < SIZE; i++)
+        printf("%d : %d\n", i, hashTable[i]);
+}
+
+int main() {
+    int i;
+
+    for (i = 0; i < SIZE; i++)
+        hashTable[i] = -1;
+
+    insert(25);
+    insert(35);
+    insert(45);
+    insert(15);
+
+    search(35);
+
+    display();
+
+    return 0;
+}
+
+
+
+
+25 inserted at index 5
+Probes: 1
+35 inserted at index 6
+Probes: 2
+45 inserted at index 7
+Probes: 3
+15 inserted at index 8
+Probes: 4
+
+Element found at index 6
